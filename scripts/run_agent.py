@@ -104,11 +104,12 @@ def extract_patch(text):
 def main():
     if not API_KEY:
         print("Error: ANTHROPIC_API_KEY environment variable not set.")
+        print("\nThis environment variable is populated from the GitHub secret 'CLAUDE_API_KEY'.")
         print("\nTo fix this issue:")
         print("1. Add your Anthropic API key as a GitHub repository secret named 'CLAUDE_API_KEY'")
         print("2. Go to: Settings > Secrets and variables > Actions > New repository secret")
         print("3. Name: CLAUDE_API_KEY")
-        print("4. Value: Your Anthropic API key")
+        print("4. Value: Your Anthropic API key (starts with 'sk-ant-')")
         sys.exit(1)
 
     # 1. Load Task
