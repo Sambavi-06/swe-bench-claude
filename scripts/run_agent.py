@@ -6,7 +6,7 @@ import time
 import subprocess
 import re
 import yaml
-from datetime import datetime
+from datetime import datetime, timezone
 
 # Configuration
 API_KEY = os.environ.get("ANTHROPIC_API_KEY")
@@ -23,7 +23,7 @@ def log_event(event_type, content, **kwargs):
     """Log event to agent.log in JSONL format."""
     log_file = os.path.join(ARTIFACTS_DIR, "agent.log")
     entry = {
-        "timestamp": datetime.utcnow().isoformat() + "Z",
+        "timestamp": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
         "type": event_type,
         "content": content
     }
