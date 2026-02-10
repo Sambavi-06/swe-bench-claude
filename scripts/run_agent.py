@@ -34,12 +34,16 @@ def run_command(command, cwd=None, log_file=None):
     """Execute a bash command and return its output."""
     print(f"Executing: {command}")
     try:
+        env = os.environ.copy()
+        env["PYTHONPATH"] = f"/testbed:/testbed/vendor/infogami:{env.get('PYTHONPATH', '')}"
+        
         result = subprocess.run(
             command,
             shell=True,
             capture_output=True,
             text=True,
-            cwd=cwd
+            cwd=cwd,
+            env=env
         )
         output = result.stdout + result.stderr
         

@@ -46,6 +46,7 @@ jobs:
       - name: Run AI Agent
         env:
           ANTHROPIC_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+          PYTHONPATH: /testbed:/testbed/vendor/infogami
         run: |
           if [ -z "$ANTHROPIC_API_KEY" ]; then
             echo "Error: CLAUDE_API_KEY secret is not set in repository secrets." >&2
