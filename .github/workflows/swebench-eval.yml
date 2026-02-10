@@ -34,6 +34,12 @@ jobs:
           chmod +x scripts/setup_repository.sh
           ./scripts/setup_repository.sh
 
+      - name: Install Project Dependencies
+        run: |
+          if [ -f "/testbed/requirements.txt" ]; then
+            pip install -r /testbed/requirements.txt
+          fi
+
       - name: Run AI Agent
         env:
           ANTHROPIC_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
