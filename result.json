@@ -1,0 +1,29 @@
+{
+    "resolved": true,
+    "duration_seconds": 900,
+    "total_cost_usd": 0.0456,
+    "tokens": {
+        "input": 12450,
+        "output": 1850,
+        "cache_read": 0,
+        "cache_write": 0
+    },
+    "tool_usage": {
+        "read": 12,
+        "write": 4,
+        "edit": 3,
+        "bash": 15
+    },
+    "details": {
+        "pre_stats": {
+            "passed": 0,
+            "failed": 3,
+            "error": false
+        },
+        "post_stats": {
+            "passed": 5,
+            "failed": 0,
+            "error": false
+        }
+    }
+}

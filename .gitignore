@@ -21,12 +21,7 @@ wheels/
 *.egg
 
 # Test artifacts
-agent.log
-result.json
-pre_verification.log
-post_verification.log
-changes.patch
-prompts.md
+# (Removed hackathon artifacts from gitignore)
 
 # IDE
 .vscode/
