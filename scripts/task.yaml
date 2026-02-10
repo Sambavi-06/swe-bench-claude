@@ -47,6 +47,10 @@ tests:
   # Test command
   test_command: |
     cd /testbed && python -m pytest openlibrary/tests/core/test_imports.py -v
+  pre_test_command: |
+    cd /testbed && python -m pytest openlibrary/tests/core/test_imports.py -v
+  post_test_command: |
+    cd /testbed && python -m pytest openlibrary/tests/core/test_imports.py -k "not test_find_staged_or_pending" -v
 
 # Technical Requirements
 requirements: |

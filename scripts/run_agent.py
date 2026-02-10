@@ -128,8 +128,8 @@ def main():
     
     # 2. Pre-verification
     print("Running pre-verification tests...")
-    test_cmd = task['tests']['test_command']
-    rc, pre_output = run_command(test_cmd, log_file="pre_verification.log")
+    pre_cmd = task['tests'].get('pre_test_command', task['tests']['test_command'])
+    rc, pre_output = run_command(pre_cmd, log_file="pre_verification.log")
     print(f"Pre-verification exit code: {rc}")
 
     # 3. Use AI Agent to generate fix
@@ -192,7 +192,8 @@ Ensure the patch can be applied with `git apply`.
 
     # 5. Post-verification
     print("Running post-verification tests...")
-    rc_post, post_output = run_command(test_cmd, log_file="post_verification.log")
+    post_cmd = task['tests'].get('post_test_command', task['tests']['test_command'])
+    rc_post, post_output = run_command(post_cmd, log_file="post_verification.log")
     print(f"Post-verification exit code: {rc_post}")
     
     if rc_post == 0:
