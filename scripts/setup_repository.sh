@@ -13,7 +13,7 @@ if [ ! -d "$TARGET_DIR/.git" ]; then
     git clone $REPO_URL $TARGET_DIR
 fi
 
-git -C $TARGET_DIR config --global --add safe.directory $TARGET_DIR
+git config --global --add safe.directory $TARGET_DIR
 git -C $TARGET_DIR reset --hard $BASE_COMMIT
 git -C $TARGET_DIR clean -fd
 
